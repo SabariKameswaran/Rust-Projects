@@ -1,0 +1,46 @@
+[package]
+name = "Video-Player"
+description = "My Video Playing Project"
+version = "0.1.0"
+authors = ["Sabari Kameswaran <sabari@kriyaetive.com>"]
+categories = ["wasm"]
+readme = "README.md"
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+lto = true
+
+[dependencies]
+js-sys = "0.3.32"
+wasm-bindgen = "0.2.55"
+gloo = "0.11.0"
+wasm-bindgen-futures = "0.4.7"
+wee_alloc = { version = "0.4.2", optional = true }
+
+[dependencies.web-sys]
+version = "0.3.24"
+features = [
+  'CssStyleDeclaration',
+  'Document',
+  'Element',
+  'HtmlElement',
+  'HtmlButtonElement',
+  'HtmlParagraphElement',
+  'HtmlVideoElement',
+  'HtmlMediaElement',
+  'Node',
+  'Window',
+  'console',
+]
+
+[target."cfg(debug_assertions)".dependencies]
+console_error_panic_hook = "0.1.5"
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3.41"
+futures = "0.3.30"
+js-sys = "0.3.32"
+wasm-bindgen-futures = "0.4.7"
